@@ -14,6 +14,7 @@ public class SessionFactoryUtil {
 		try {
 			if(sessionFactory==null){
 				Configuration configuration = new Configuration().configure(SessionFactoryUtil.class.getResource("/hibernate.cfg.xml"));
+				configuration.addClass(com.aps.testing.cucumber.entity.EmployeeEntity.class);
 				StandardServiceRegistryBuilder serviceRegistryBuilder = new StandardServiceRegistryBuilder();
 				serviceRegistryBuilder.applySettings(configuration.getProperties());
 				ServiceRegistry serviceRegistry = serviceRegistryBuilder.build();

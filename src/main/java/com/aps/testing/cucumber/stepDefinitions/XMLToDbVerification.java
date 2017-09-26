@@ -1,5 +1,10 @@
 package com.aps.testing.cucumber.stepDefinitions;
 
+import org.hibernate.Session;
+
+import com.aps.testing.cucumber.entity.EmployeeEntity;
+import com.aps.testing.cucumber.util.SessionFactoryUtil;
+
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -12,6 +17,23 @@ public class XMLToDbVerification {
     	XMLToDbVerificationHelper xmlToDbVerificationHelper = new XMLToDbVerificationHelper();
     	xmlToDbVerificationHelper.runBat();
 		System.out.println("Spring boot application is running.");
+	}
+	
+	@When("^I run a write to the DB$")
+	public void i_run_a_write_to_the_DB() throws Throwable {
+		  {
+		      Session session = SessionFactoryUtil.getSessionFactory().openSession();
+		      session.beginTransaction();
+		      // Add new Employee object
+		      EmployeeEntity emp = new EmployeeEntity();
+		      emp.setEmployeeId(1);
+		      emp.setEmail("demo-user@mail.com");
+		      emp.setFirstName("demo");
+		      emp.setLastName("user");
+		      session.save(emp);
+		      session.getTransaction().commit();
+		      SessionFactoryUtil.shutDown();
+		   }
 	}
 	
 	@When("^I query the curr database  for the provider <provider>$")
