@@ -1,11 +1,17 @@
 package com.aps.testing.cucumber.stepDefinitions;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.List;
+
+import org.hamcrest.CoreMatchers;
 import org.hibernate.Session;
+import org.junit.Assert;
 
 import com.aps.testing.cucumber.entity.EmployeeEntity;
 import com.aps.testing.cucumber.util.SessionFactoryUtil;
 
-import cucumber.api.PendingException;
+import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -15,8 +21,19 @@ public class XMLToDbVerification {
 	public void i_have_Spring_boot_application_running() throws Throwable {
 
     	XMLToDbVerificationHelper xmlToDbVerificationHelper = new XMLToDbVerificationHelper();
-    	xmlToDbVerificationHelper.runBat();
+    	xmlToDbVerificationHelper.runBat("test.bat");
 		System.out.println("Spring boot application is running.");
+	}
+	@Given("^I upload xml file using a <shell> script$")
+	public void i_upload_xml_file_using_a_shell_script(DataTable shellFile) throws Throwable {
+		
+		List<List<String>> data = shellFile.raw();
+		
+    	XMLToDbVerificationHelper xmlToDbVerificationHelper = new XMLToDbVerificationHelper();
+    	String result = xmlToDbVerificationHelper.runBat(data.get(0).get(0));
+    	Assert.assertThat( result,CoreMatchers.containsString("Person.xml"));
+    	Assert.assertThat( result,CoreMatchers.containsString("100%"));
+    	
 	}
 	
 	@When("^I run a write to the DB$")
