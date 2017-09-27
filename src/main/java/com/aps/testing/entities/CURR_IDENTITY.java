@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 
 @Entity
-@org.hibernate.annotations.Entity(dynamicUpdate = true)
+//@org.hibernate.annotations.Entity(dynamicUpdate = true)
 @Table(name="CURR_IDENTITY",uniqueConstraints = @UniqueConstraint(columnNames = "ID"))
 
 
