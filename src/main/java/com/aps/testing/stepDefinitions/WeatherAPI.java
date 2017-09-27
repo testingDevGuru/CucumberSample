@@ -1,4 +1,4 @@
-package com.aps.testing.cucumber.stepDefinitions;
+package com.aps.testing.stepDefinitions;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;

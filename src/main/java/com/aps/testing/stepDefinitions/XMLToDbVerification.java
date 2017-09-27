@@ -1,9 +1,9 @@
-package com.aps.testing.cucumber.stepDefinitions;
+package com.aps.testing.stepDefinitions;
 
 import org.hibernate.Session;
 
-import com.aps.testing.cucumber.entity.EmployeeEntity;
-import com.aps.testing.cucumber.util.SessionFactoryUtil;
+import com.aps.testing.entity.EmployeeEntity;
+import com.aps.testing.util.HibernateUtil;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
@@ -22,7 +22,7 @@ public class XMLToDbVerification {
 	@When("^I run a write to the DB$")
 	public void i_run_a_write_to_the_DB() throws Throwable {
 		  {
-		      Session session = SessionFactoryUtil.getSessionFactory().openSession();
+		      Session session = HibernateUtil.getSessionFactory().openSession();
 		      session.beginTransaction();
 		      // Add new Employee object
 		      EmployeeEntity emp = new EmployeeEntity();
@@ -32,7 +32,7 @@ public class XMLToDbVerification {
 		      emp.setLastName("user");
 		      session.save(emp);
 		      session.getTransaction().commit();
-		      SessionFactoryUtil.shutDown();
+		      HibernateUtil.shutDown();
 		   }
 	}
 	

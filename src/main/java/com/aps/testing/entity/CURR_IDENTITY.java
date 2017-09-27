@@ -1,4 +1,4 @@
-package com.aps.testing.entities;
+package com.aps.testing.entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -16,7 +16,7 @@ public class CURR_IDENTITY implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@Column(name="IDENTITY_ID", unique=true, nullable=false)
+	@Column(name="ID", unique=true, nullable=false)
 	private long identityId;
 	
 	@Column(name="ACTION_FLAG", unique=true, nullable=true)
@@ -62,7 +62,7 @@ public class CURR_IDENTITY implements Serializable{
 	@Column(name="LAST_NAME", unique=false, nullable=false)
 	private String lastName;
 
-	@Column(name="LEGAL_NAME", unique=false, nullable=false)
+	@Column(name="LEGAL_NAME", unique=false, nullable=true)
 	private String legalName;
 
 	@Column(name="MEDICARE_COUNT")
@@ -71,7 +71,7 @@ public class CURR_IDENTITY implements Serializable{
 	@Column(name="MEDICARE_ID", unique=false, nullable=true)
 	private String medicareId;
 
-	@Column(name="MIDDLE_NAME", unique=false, nullable=false)
+	@Column(name="MIDDLE_NAME", unique=false, nullable=true)
 	private String middleName;
 
 	@Column(name="NAME_PREFIX", unique=false, nullable=true)

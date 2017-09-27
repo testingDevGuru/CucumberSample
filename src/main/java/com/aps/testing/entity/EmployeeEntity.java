@@ -1,4 +1,4 @@
-package com.aps.testing.cucumber.entity;
+package com.aps.testing.entity;
 
 import java.io.Serializable;
  

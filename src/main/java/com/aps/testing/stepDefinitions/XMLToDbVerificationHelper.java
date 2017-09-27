@@ -1,4 +1,4 @@
-package com.aps.testing.cucumber.stepDefinitions;
+package com.aps.testing.stepDefinitions;
 
 import java.io.BufferedReader;
 import java.io.IOException;

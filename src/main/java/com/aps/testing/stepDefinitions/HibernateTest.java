@@ -1,8 +1,8 @@
-package com.aps.testing.test;
+package com.aps.testing.stepDefinitions;
 
 import org.hibernate.Session;
 
-import com.aps.testing.entities.CURR_IDENTITY;
+import com.aps.testing.entity.CURR_IDENTITY;
 import com.aps.testing.util.HibernateUtil;
 
 public class HibernateTest {
@@ -21,7 +21,7 @@ public class HibernateTest {
 	System.out.println(session.toString());
 	session.save(curIdentity);
 	session.getTransaction().commit();
-	HibernateUtil.shutdown();
+	HibernateUtil.shutDown();
 
 	}
 

@@ -1,4 +1,4 @@
-package com.aps.testing.cucumber.app;
+package com.aps.testing.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

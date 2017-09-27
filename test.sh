@@ -1,5 +1,6 @@
 #!/bin/bash
 @echo off
 echo Job starting 
-scp -i C:\Users\hahmim\Downloads\myEC2Puty.ppk C:\Users\hahmim\Documents\APS\IdentityData\Person.xml  ec2-user@ec2-54-174-19-252.compute-1.amazonaws.com:
+result="${PWD}"
+scp -i ~/FerkatPemKey.pem $result/data/CR3247_Identity_Individual_CreatedFromExcelUsingVBA_Jansen.xml ec2-user@ec2-54-226-88-62.compute-1.amazonaws.com:
 echo Job finished
