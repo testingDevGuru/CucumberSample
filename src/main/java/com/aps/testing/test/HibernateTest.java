@@ -17,6 +17,8 @@ public class HibernateTest {
 	curIdentity.setNpi("9838762843");
 	curIdentity.setGender("male");
 	
+	System.out.println("Line 20");
+	System.out.println(session.toString());
 	session.save(curIdentity);
 	session.getTransaction().commit();
 	HibernateUtil.shutdown();
