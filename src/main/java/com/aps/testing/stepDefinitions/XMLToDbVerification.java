@@ -1,6 +1,5 @@
 package com.aps.testing.stepDefinitions;
 
-import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
