@@ -1,16 +1,13 @@
 package com.aps.testing.stepDefinitions;
 
-import org.springframework.http.HttpStatus;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import static io.restassured.RestAssured.*;
-import io.restassured.matcher.RestAssuredMatchers.*;
 import io.restassured.response.Response;
-import junit.framework.Assert;
 
-import org.hamcrest.Matchers.*;
+import org.junit.Assert;
 
 public class CucumberAndSpring {
 	Response res;

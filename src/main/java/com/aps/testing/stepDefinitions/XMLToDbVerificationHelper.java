@@ -10,10 +10,10 @@ import org.apache.commons.exec.ExecuteException;
 
 public class XMLToDbVerificationHelper {
 
-	public void runBat()
+	public String runBat(String Shell)
 			throws Exception {
 		try {
-			String target = new String("test.bat");
+			String target = new String(Shell);
 			Runtime rt = Runtime.getRuntime();
 			Process proc = rt.exec(target);
 			proc.waitFor();
@@ -23,10 +23,11 @@ public class XMLToDbVerificationHelper {
 			while ((line = reader.readLine()) != null) {
 				output.append(line + "\n");
 			}
-			System.out.println("### " + output);
+			return output.toString();
 		} catch (Throwable t) {
 			t.printStackTrace();
 		}
+		return null;
 	}
 
 }
