@@ -12,16 +12,26 @@ public class HibernateTest {
 	session.beginTransaction();
 	
 	CURR_IDENTITY curIdentity=new CURR_IDENTITY();
+	curIdentity.setIdentityId(1);
 	curIdentity.setFirstName("Tom");
 	curIdentity.setLastName("Jerry");
 	curIdentity.setNpi("9838762843");
 	curIdentity.setGender("male");
 	
-	System.out.println("Line 20");
-	System.out.println(session.toString());
 	session.save(curIdentity);
 	session.getTransaction().commit();
-	HibernateUtil.shutDown();
+	session.close();
+	
+	
+	curIdentity=null;
+	session=HibernateUtil.getSessionFactory().openSession();
+	session.beginTransaction();
+	
+	curIdentity=(CURR_IDENTITY)session.get(CURR_IDENTITY.class,1 );
+	System.out.println("The user name is: "+ curIdentity.getFirstName());
+
+	
+	
 
 	}
 
