@@ -33,7 +33,7 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">create</property>
 
-      <mapping class="com.aps.testing.entities.CURR_IDENTITY"/>  
+      <mapping class="com.aps.testing.entity.CURR_IDENTITY"/>  
 
     </session-factory>
 

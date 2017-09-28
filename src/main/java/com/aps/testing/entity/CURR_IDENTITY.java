@@ -17,7 +17,7 @@ public class CURR_IDENTITY implements Serializable{
 	
 	@Id
 	@Column(name="ID", unique=true, nullable=false)
-	private long identityId;
+	private int identityId;
 	
 	@Column(name="ACTION_FLAG", unique=true, nullable=true)
 	private String actionFlag;
@@ -100,7 +100,7 @@ public class CURR_IDENTITY implements Serializable{
 		return identityId;
 	}
 
-	public void setIdentityId(long identityId) {
+	public void setIdentityId(int identityId) {
 		this.identityId = identityId;
 	}
 
